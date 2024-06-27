@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        dialog {
+            border: none;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        dialog::backdrop{
+            background-color: #000000b8;
+        }
+
+        menu {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="openDialog">Open Dialog</button>
+
+    <dialog id="myDialog">
+        <form method="dialog">
+            <h2>Dialog Title</h2>
+            <p>This is a simple dialog example.</p>
+            <menu>
+                <button id="closeDialog">Close</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dialog = document.getElementById('myDialog');
+            const openDialogButton = document.getElementById('openDialog');
+            const closeDialogButton = document.getElementById('closeDialog');
+
+            openDialogButton.addEventListener('click', function() {
+                dialog.showModal();
+            });
+
+            closeDialogButton.addEventListener('click', function() {
+                dialog.close();
+            });
+        });
+    </script>
+</body>
+</html>
